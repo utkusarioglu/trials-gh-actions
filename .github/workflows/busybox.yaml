@@ -20,8 +20,7 @@ jobs:
         id: busybox
         with:
           command: "${{ inputs.command }} > /output/busybox"
-          volumes: 
-            - "${{ github.workspace }}:/output/"
+          volumes: "${{ github.workspace }}:/output/"
     outputs:
       container-out: ${{ toJSON(steps.busybox.outputs) }}
 
