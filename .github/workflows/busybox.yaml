@@ -19,7 +19,8 @@ jobs:
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
-          command: "${{ inputs.command }} >> $GITHUB_WORKSPACE/out"
+          # command: "${{ inputs.command }} >> $GITHUB_WORKSPACE/out"
+          command: "${{ inputs.command }} >> /github/workspace/out"
       - name: out
         run: |
           cat $GITHUB_WORKSPACE/out
