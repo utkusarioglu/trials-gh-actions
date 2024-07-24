@@ -12,6 +12,7 @@ jobs:
       command: "ls -al /"
 
   echo-output:
+    runs-on: ubuntu-latest
     needs: 
       - call-other
     steps:
