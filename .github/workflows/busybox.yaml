@@ -17,21 +17,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello" > ${GITHUB_WORKSPACE}/file1
-    # - run: echo "input command: ${{ inputs.command }}"
+
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
           command: |
             ${{ inputs.command }} 
-            echo "hi" >> $GITHUB_OUTPUT
+            echo "hi" >> ${GITHUB_OUTPUT}
             echo "hi2" >> ${GITHUB_WORKSPACE}/file2
-            echo "hi3" > /github/workspace/file3
-            echo "hi4" > ./file4
+            echo "hi3" > ./file3
+
       - name: out
         run: |
           ls -al
           cat ${GITHUB_WORKSPACE}/file1
-          # cat $GITHUB_WORKSPACE/out
+
     outputs:
       container-out: ${{ toJSON(steps.busybox.outputs) }}
 
