@@ -17,8 +17,8 @@ jobs:
       - call-other
     steps:
       - run: |
-          echo "os release: ${{ jobs.call-other.outputs.release }}"
-            echo "altered-message: ${{ jobs.call-other.outputs.altered-message }}"
+          echo "os release: ${{ needs.call-other.outputs.release }}"
+            echo "altered-message: ${{ needs.call-other.outputs.altered-message }}"
 
 
         
