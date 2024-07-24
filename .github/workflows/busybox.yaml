@@ -7,7 +7,8 @@ on:
         type: string
         required: true
     outputs:
-      return-message: "cats!"
+      return-message: 
+        value: "cats!"
 
 jobs:
   run-busybox:
