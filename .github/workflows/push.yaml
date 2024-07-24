@@ -1,0 +1,19 @@
+name: On push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-other:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/os-release.yaml
+        id: os-release
+        with:
+          message: utkino
+      - run: |
+          echo "os release: ${{ steps.os-release.outputs.release }}"
+          echo "altered-message ${{ steps.os-release.outputs.altered-message }}"
+        
