@@ -16,5 +16,5 @@ jobs:
     steps:
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         with:
-          entrypoint: ${{ inputs.command }}
+          command: ${{ inputs.command }}
 

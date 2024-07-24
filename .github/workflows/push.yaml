@@ -9,7 +9,7 @@ jobs:
   call-other:
     uses: ./.github/workflows/busybox.yaml
     with:
-      command: sh -c 'ls -al'
+      command: ls -al
 
   echo-output:
     runs-on: ubuntu-latest
