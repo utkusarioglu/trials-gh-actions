@@ -19,7 +19,7 @@ jobs:
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
-          command: ${{ inputs.command }}
+          command: "${{ inputs.command }} >> $GITHUB_OUTPUT"
     outputs:
       container-out: ${{ toJSON(steps.busybox.outputs) }}
 
