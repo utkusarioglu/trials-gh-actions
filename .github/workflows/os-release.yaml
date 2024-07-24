@@ -32,6 +32,6 @@ jobs:
           altered="hello ${{ inputs.message }}"
           echo "hello=${altered}" >> "${GITHUB_OUTPUT}"
     outputs:
-      altered-message = ${{ steps.say-hello.outputs.hello }}
+      altered-message: ${{ steps.say-hello.outputs.hello }}
 
 
