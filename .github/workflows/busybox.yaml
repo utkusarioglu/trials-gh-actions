@@ -26,6 +26,7 @@ jobs:
             echo "hi" >> $GITHUB_OUTPUT
             echo "hi2" >> ${GITHUB_WORKSPACE}/file2
             echo "hi3" > /github/workspace/file3
+            echo "hi4" > ./file4
       - name: out
         run: |
           ls -al
