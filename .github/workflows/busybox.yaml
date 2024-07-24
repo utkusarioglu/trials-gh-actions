@@ -21,11 +21,7 @@ jobs:
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
-          command: |
-            ${{ inputs.command }} 
-            echo "hi" >> ${GITHUB_OUTPUT}
-            echo "hi2" >> ${GITHUB_WORKSPACE}/file2
-            echo "hi3" > ./file3
+          command:  echo "hi2" > ${GITHUB_WORKSPACE}/file2
 
       - name: out
         run: |
