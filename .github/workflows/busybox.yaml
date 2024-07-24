@@ -16,6 +16,7 @@ jobs:
   run-busybox:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "hello" > $GITHUB_WORKSPACE/file1
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
@@ -23,6 +24,7 @@ jobs:
           command: "${{ inputs.command }} >> /github/workspace/out"
       - name: out
         run: |
+          ls -al
           cat $GITHUB_WORKSPACE/out
     outputs:
       container-out: ${{ toJSON(steps.busybox.outputs) }}
