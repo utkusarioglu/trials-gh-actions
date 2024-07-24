@@ -18,10 +18,11 @@ jobs:
     steps:
       - run: echo "hello" > ${GITHUB_WORKSPACE}/file1
 
-      - uses: docker://ghcr.io/hlesey/busybox:1.36.1
+        # - uses: docker://ghcr.io/hlesey/busybox:1.36.1
+      - uses: docker://gcr.io/google-containers/busybox:latest
         id: busybox
         with:
-          entrypoint: ls -al
+          command: ls -al
             # command:  echo "hi2" > ${GITHUB_WORKSPACE}/file2
 
       - name: out
