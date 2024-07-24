@@ -11,3 +11,11 @@ jobs:
     with:
       command: "ls -al /"
 
+  echo-output:
+    needs: 
+      - call-other
+    steps:
+      - run: |
+          echo "echoing: ${{ needs.call-other.outputs.return-message }}"
+
+
