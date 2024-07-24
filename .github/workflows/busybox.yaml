@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello" > ${GITHUB_WORKSPACE}/file1
-      - run: echo "input command: '${{ inputs.command }}'"
+      - run: echo "input command: ${{ inputs.command }}"
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
