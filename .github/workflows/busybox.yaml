@@ -13,7 +13,7 @@ jobs:
   run-busybox:
     runs-on: ubuntu-latest
     steps:
-      - uses: https://registry.hub.docker.com/library/busybox
+      - uses: ghcr.io/hlesey/busybox:1.36.1
         with:
           entrypoint: ${{ input.command }}
 
