@@ -21,7 +21,7 @@ jobs:
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
-          entrypoint: sh -c
+          entrypoint: /bin/sh -c
           command:  echo "hi2" > ${GITHUB_WORKSPACE}/file2
 
       - name: out
