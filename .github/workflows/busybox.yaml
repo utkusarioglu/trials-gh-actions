@@ -9,6 +9,8 @@ on:
     outputs:
       return-message: 
         value: "cats!"
+      busybox-output:
+        value: ${{ jobs.run-busybox.outputs.container-out }}
 
 jobs:
   run-busybox:
