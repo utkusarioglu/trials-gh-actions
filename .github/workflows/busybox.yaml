@@ -22,7 +22,7 @@ jobs:
         id: busybox
         with:
           entrypoint: sh
-          command: ls -al >> \$GITHUB_OUTPUT
+          command: ls -al >> $GITHUB_OUTPUT
             # command: ${{ inputs.command }}
             # command:  echo "hi2" > ${GITHUB_WORKSPACE}/file2
 
