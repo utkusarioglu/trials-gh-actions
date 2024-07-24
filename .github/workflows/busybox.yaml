@@ -20,8 +20,7 @@ jobs:
       - uses: docker://ghcr.io/hlesey/busybox:1.36.1
         id: busybox
         with:
-          # command: "${{ inputs.command }}" >> $GITHUB_WORKSPACE/out
-          command: "${{ inputs.command }}" >> $GITHUB_OUTPUT
+          command: "${{ inputs.command }}" >> "$GITHUB_OUTPUT"
       - name: out
         run: |
           ls -al
