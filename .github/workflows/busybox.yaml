@@ -22,8 +22,9 @@ jobs:
       - uses: docker://ghcr.io/linuxcontainers/alpine:latest
         id: busybox
         with:
+          entrypoint: wget -O - https://www.google.com
           # entrypoint: sh
-          command: "echo aaaa >> /github/workspace/file3"
+          # command: "echo aaaa >> /github/workspace/file3"
             # command: ${{ inputs.command }}
             # command:  echo "hi2" > ${GITHUB_WORKSPACE}/file2
 
