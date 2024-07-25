@@ -23,4 +23,4 @@ jobs:
           echo ${{ needs.busybox-run.outputs.command-output }}
           
           echo "secondary output:"
-          echo ${{ needs.busybox-run.outputs.secondary-output }} | base64 -d
+          echo ${{ needs.busybox-run.outputs.secondary-output }}
