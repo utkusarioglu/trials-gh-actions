@@ -19,7 +19,7 @@ jobs:
           - ./public/:/usr/share/nginx/html/
     steps:
       - uses: actions/checkout@v4
-      - run: docker exec nginx 'systemctl restart nginx'
+      - run: docker exec nginx 'nginx -s reload'
       - uses: docker://node
         with:
           args: node scripts/request.js
