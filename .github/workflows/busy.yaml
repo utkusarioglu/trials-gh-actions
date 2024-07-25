@@ -1,0 +1,20 @@
+name: Busy
+  
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  busybox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker://busybox
+        with:
+          args: sh -c "
+            wget
+              -O ${GITHUB_WORKSPACE}/response.json
+              https://jsonplaceholder.org/posts/1"
+
+      - run: |
+          cat response.json
