@@ -12,11 +12,13 @@ jobs:
     services:
       nginx-service:
         image: nginx:latest
+        options: --name nginx
         ports:
           - 80:80
         volumes:
           - ./public/index.html:/usr/share/nginx/html/
     steps:
       - uses: actions/checkout@v4
+      - run: docker exec nginx 'systemctl restart nginx'
       - run: |
           node scripts/request.js
