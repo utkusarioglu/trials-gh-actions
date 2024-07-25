@@ -21,6 +21,8 @@ jobs:
         id: busybox-run
         with:
           args: sh -c "scripts/busybox.sh '${{ inputs.command }}'"
+      - run: |
+          ls -al
     outputs:
       command-output: ${{ steps.busybox-run.output.command_output }}
       secondary-output: ${{ steps.busybox-run.output.secondary_output}}
