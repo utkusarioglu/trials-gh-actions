@@ -21,7 +21,11 @@ jobs:
       - uses: docker://ghcr.io/linuxcontainers/alpine:latest
         id: busybox
         with:
-          args: 'sh -c "echo cats > ${GITHUB_WORKSPACE}/file3"'
+          args: |
+            sh -c "
+              echo cats > ${GITHUB_WORKSPACE}/file3
+              echo "something=somevalue >> ${GITHUB_OUTPUT}"
+            "
 
       - name: out
         run: |
