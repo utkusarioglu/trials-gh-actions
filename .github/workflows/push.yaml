@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker exec nginx sh -c 'nginx -s reload'
+      - run: docker exec nginx sh -c 'ls -al /usr/share/nginx/html'
       - uses: docker://node
         with:
           args: node scripts/request.js
