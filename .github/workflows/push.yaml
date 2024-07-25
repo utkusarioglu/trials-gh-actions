@@ -1,24 +1,18 @@
-name: Push
-run-name: run-push
-  
+run-name: "${{ github.ref_type }}-${{ github.ref_name }}"
+
 on:
   push:
 
 jobs:
-  db-trial:
+  db:
     runs-on: ubuntu-latest
-    # container:
-    #   image: node:latest
-    services:
-      nginx-service:
-        image: nginx:latest
-        options: --name nginx
-        ports:
-          - 80:80
+    container:
+      image: postgres
+      env:
+        POSTGRES_PASSWORD: cat
+      # ports:
+      #   - 5432:5432
     steps:
       - uses: actions/checkout@v4
-      - run: docker cp ./public/index.html nginx:/usr/share/nginx/html/index.html
-      # - run: docker exec nginx sh -c 'nginx -s reload'
-      - uses: docker://node
-        with:
-          args: node scripts/request.js
+      - run: |
+          PGPASSWORD=cat psql -U postgres -c 'SHOW config_file;'

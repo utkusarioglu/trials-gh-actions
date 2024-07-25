@@ -1,0 +1,24 @@
+name: Push
+run-name: run-push
+  
+on:
+  workflow_call:
+
+jobs:
+  db-trial:
+    runs-on: ubuntu-latest
+    # container:
+    #   image: node:latest
+    services:
+      nginx-service:
+        image: nginx:latest
+        options: --name nginx
+        ports:
+          - 80:80
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker cp ./public/index.html nginx:/usr/share/nginx/html/index.html
+      # - run: docker exec nginx sh -c 'nginx -s reload'
+      - uses: docker://node
+        with:
+          args: node scripts/request.js
