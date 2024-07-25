@@ -32,6 +32,8 @@ jobs:
           cat ${GITHUB_WORKSPACE}/file1
           echo "from container:"
           cat ${GITHUB_WORKSPACE}/file3
+          echo "from google:"
+          cat ${GITHUB_WORKSPACE}/file4
 
     outputs:
       container-out: ${{ toJSON(steps.busybox.outputs) }}
