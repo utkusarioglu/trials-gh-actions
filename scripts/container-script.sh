@@ -1,3 +1,3 @@
 echo cats > $GITHUB_WORKSPACE/file3
-files="$(ls -al)"
+files="$(cat /etc/os-release)"
 echo something="${files}" >> $GITHUB_OUTPUT
