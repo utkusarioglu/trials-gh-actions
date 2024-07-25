@@ -10,8 +10,8 @@ jobs:
       image: postgres
       env:
         POSTGRES_PASSWORD: cat
-      # ports:
-      #   - 5432:5432
+      ports:
+        - 5432:5432
     steps:
       - uses: actions/checkout@v4
       - run: |
