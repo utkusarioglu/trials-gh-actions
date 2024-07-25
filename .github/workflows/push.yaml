@@ -1,23 +1,21 @@
 name: Push
-
-# cats
-on: 
+run-name: run-push
+  
+on:
   push:
-    
+
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: 
-          - ubuntu-latest
-          - ubuntu-20.04
-        include:
-          - os: ubuntu-latest
-            cat: dog
-          - os: ubuntu-latest
-            dog: bunny
+  db-trial:
+    runs-on: ubuntu-latest
+    container:
+      image: node:latest
+    services:
+      nginx-service:
+        image: nginx:latest
+        ports:
+          - 80:80
     steps:
+      - run: echo hello
       - run: |
-          echo "${{ matrix.os }} -${{ matrix.cat }}-${{ matrix.dog }}-" 
-     
+          node scripts/request.js
+      - run: echo done
