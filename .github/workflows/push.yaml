@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker cp ./public/index.html nginx:/usr/share/nginx/html/index.html
-      - run: docker exec nginx sh -c 'nginx -s reload'
+      # - run: docker exec nginx sh -c 'nginx -s reload'
       - uses: docker://node
         with:
           args: node scripts/request.js
