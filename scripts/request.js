@@ -1,2 +1,3 @@
 fetch("http://nginx-service:80")
-  .then((response) => console.log(response.text()));
+  .then((response) => response.text())
+  .then(console.log)
