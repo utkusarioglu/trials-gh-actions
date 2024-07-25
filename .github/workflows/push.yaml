@@ -4,9 +4,20 @@ on:
   push:
 
 jobs:
-  call:
-    uses: ./.github/workflows/input.yaml
-    with:
-      first: cat
-      second: 5
-      third: false
+  bird:
+    runs-on: ubuntu-latest
+    steps:
+      - id: cat
+        run: |
+          echo "dog=woof" >> $GITHUB_OUTPUT
+    outputs:
+      dog: ${{ steps.cat.outputs.dog }}
+  
+  animals:
+    needs: 
+      - bird
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo 'other step output:'
+          echo '${{ needs.bird.outputs.dog }}'
