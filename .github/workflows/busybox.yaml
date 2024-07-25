@@ -20,7 +20,8 @@ jobs:
 
       - run: "echo hello > ${GITHUB_WORKSPACE}/file1"
 
-      - uses: docker://ghcr.io/linuxcontainers/alpine:latest
+      # - uses: docker://ghcr.io/linuxcontainers/alpine:latest
+      - uses: docker://busybox
         id: busybox
         with:
           args: sh -c scripts/container-script.sh
@@ -33,7 +34,7 @@ jobs:
           echo "from container:"
           cat ${GITHUB_WORKSPACE}/file3
           echo "from google:"
-          cat ${GITHUB_WORKSPACE}/file4
+          cat ${GITHUB_WORKSPACE}/file4 | head -n1
 
     outputs:
       container-out: ${{ toJSON(steps.busybox.outputs) }}
