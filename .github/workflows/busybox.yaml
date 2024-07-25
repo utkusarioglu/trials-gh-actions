@@ -7,34 +7,17 @@ on:
         type: string
         required: true
     outputs:
-      return-message: 
-        value: "cats!"
-      busybox-output:
-        value: ${{ jobs.run-busybox.outputs.container-out }}
+      command-output:
+        value: -------------------- command return --------------------
 
 jobs:
-  run-busybox:
+  busybox:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - run: "echo hello > ${GITHUB_WORKSPACE}/file1"
-
-      # - uses: docker://ghcr.io/linuxcontainers/alpine:latest
       - uses: docker://busybox
-        id: busybox
+        id: busybox-run
         with:
-          args: sh -c scripts/container-script.sh
-
-      - name: out
-        run: |
-          ls -al
-          echo "from host:"
-          cat ${GITHUB_WORKSPACE}/file1
-          echo "from container:"
-          cat ${GITHUB_WORKSPACE}/file3
-          echo "from google:"
-          cat ${GITHUB_WORKSPACE}/file4 | head -n1
-
+          args: sc -c scripts/busybox.sh '${{ inputs.command }}'
     outputs:
-      container-out: ${{ toJSON(steps.busybox.outputs) }}
+      command-output: ${{ steps.busybox-run.output.command-output }}

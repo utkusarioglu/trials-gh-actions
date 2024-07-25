@@ -1,23 +1,19 @@
-name: Push
-
+name: On Push
+  
 on:
   push:
     branches:
       - main
 
 jobs:
-  call-other:
+  busybox-run:
     uses: ./.github/workflows/busybox.yaml
     with:
-      command: ls -al
+      command: wget -O - http://www.google.com
 
   echo-output:
     runs-on: ubuntu-latest
-    needs: 
-      - call-other
+    needs:
+      - busybox-run
     steps:
-      - run: |
-          echo "echoing: ${{ needs.call-other.outputs.return-message }}"
-          echo "out: ${{ needs.call-other.outputs.busybox-output }}"
-
-
+      - run: echo ${{ needs.busybox-run.outputs.command-output }}
