@@ -19,5 +19,5 @@ jobs:
             dog: bunny
     steps:
       - run: |
-          echo "${{ matrix.os }} -${{ matrix.cat }}-" 
+          echo "${{ matrix.os }} -${{ matrix.cat }}-${{ matrix.dog }}-" 
      
