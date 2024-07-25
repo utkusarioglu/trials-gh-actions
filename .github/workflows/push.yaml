@@ -15,12 +15,10 @@ jobs:
         options: --name nginx
         ports:
           - 80:80
-        volumes:
-          - ./public/:/usr/share/nginx/html/
     steps:
       - uses: actions/checkout@v4
+      - run: docker cp ./public/index.html nginx:/usr/share/nginx/html/index.html
       - run: docker exec nginx sh -c 'nginx -s reload'
-      - run: docker exec nginx sh -c 'ls -al /usr/share/nginx/html'
       - uses: docker://node
         with:
           args: node scripts/request.js
