@@ -17,4 +17,9 @@ jobs:
     needs:
       - busybox-run
     steps:
-      - run: echo ${{ needs.busybox-run.outputs.command-output }}
+      - run: |
+          echo "command output:"
+          echo ${{ needs.busybox-run.outputs.command-output }}
+          
+          echo "secondary output:"
+          echo ${{ needs.busybox-run.outputs.secondary-output }}

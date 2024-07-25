@@ -9,6 +9,8 @@ on:
     outputs:
       command-output:
         value: ${{ jobs.busybox.outputs.command-output }}
+      secondary-output:
+        value: ${{ jobs.busybox.outputs.secondary-output }}
 
 jobs:
   busybox:
@@ -20,4 +22,5 @@ jobs:
         with:
           args: sh -c "scripts/busybox.sh '${{ inputs.command }}'"
     outputs:
-      command-output: ${{ steps.busybox-run.output.command-output }}
+      command-output: ${{ steps.busybox-run.output.command_output }}
+      secondary-output: ${{ steps.busybox-run.output.secondary_output}}
