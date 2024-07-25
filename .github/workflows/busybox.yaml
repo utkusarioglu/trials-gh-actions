@@ -22,15 +22,18 @@ jobs:
         id: busybox
         with:
           args: |
-            sh -c "
+            sh -c '
               echo cats > ${GITHUB_WORKSPACE}/file3
-              echo "something=somevalue >> ${GITHUB_OUTPUT}"
-            "
+              echo "something=$(ls-al)" >> ${GITHUB_OUTPUT}
+            '
 
       - name: out
         run: |
           ls -al
+          echo "from host:"
           cat ${GITHUB_WORKSPACE}/file1
+          echo "from container:"
+          cat ${GITHUB_WORKSPACE}/file3
 
     outputs:
       container-out: ${{ toJSON(steps.busybox.outputs) }}
