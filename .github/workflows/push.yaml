@@ -3,13 +3,17 @@ name: Push
 on: 
   push:
     
-concurrency:
-  group: "${{ github.ref_type}}-${{ github.ref_name }}"
-  cancel-in-progress: true
-
 jobs:
   long-running:
+    concurrency:
+      group: "${{ github.ref_type}}-${{ github.ref_name }}"
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - run: |
           sleep 5000
+  
+  another-task:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10000
