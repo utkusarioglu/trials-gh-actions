@@ -22,7 +22,7 @@ jobs:
       - uses: docker://ghcr.io/linuxcontainers/alpine:latest
         id: busybox
         with:
-          args: -c "echo cats > /github/workspace/file3"
+          args: "echo cats > /github/workspace/file3"
           # entrypoint: sh
           # command: "echo aaaa >> /github/workspace/file3"
             # command: ${{ inputs.command }}
