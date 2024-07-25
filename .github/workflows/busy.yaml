@@ -17,4 +17,4 @@ jobs:
               https://jsonplaceholder.org/posts/1"
 
       - run: |
-          cat response.json
+          cat response.json | jq '.title'
