@@ -20,7 +20,7 @@ jobs:
       - uses: docker://busybox
         id: busybox-run
         with:
-          args: sh -c "scripts/busybox.sh '${{ inputs.command }}'"
+          args: sh -c scripts/busybox.sh 
     outputs:
       command-output: ${{ steps.busybox-run.output.command_output }}
       secondary-output: ${{ steps.busybox-run.output.secondary_output}}
