@@ -13,5 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo '${{ toJSON(github) }}' | jq -M 
+          echo '${{ toJSON(github) }}'
           sleep 5000
