@@ -5,11 +5,13 @@ on:
   push:
     
 concurrency:
-  group: push-group
+  group: ${{ github.ref_name }}
   cancel-in-progress: true
 
 jobs:
   long-running:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 5000
+      - run: |
+          echo '${{ toJSON(github) }}' | jq -M 
+          sleep 5000
