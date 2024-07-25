@@ -1,6 +1,6 @@
 command="${1:?First param needs to be the commmand}"
 echo "Running ${command}"
-command_output="$($command)"
+command_output="$($command | base64)"
 echo "Command output: $command_output"
 echo "command_output='${command_output}'" >> $GITHUB_OUTPUT
 
