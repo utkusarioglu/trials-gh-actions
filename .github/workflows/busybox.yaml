@@ -16,16 +16,14 @@ jobs:
   run-busybox:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - run: "echo hello > ${GITHUB_WORKSPACE}/file1"
 
       - uses: docker://ghcr.io/linuxcontainers/alpine:latest
         id: busybox
         with:
-          args: |
-            sh -c "
-              echo cats > ${GITHUB_WORKSPACE}/file3
-              echo \"something=$(ls -al)\" >> ${GITHUB_OUTPUT}
-            "
+          args: sh -c scripts/container-script.sh
 
       - name: out
         run: |
