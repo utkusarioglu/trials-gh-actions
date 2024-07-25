@@ -16,9 +16,10 @@ jobs:
         ports:
           - 80:80
         volumes:
-          - ./public/index.html:/usr/share/nginx/html/
+          - ./public:/usr/share/nginx/html/
     steps:
       - uses: actions/checkout@v4
-      - run: docker exec nginx 'systemctl restart nginx'
-      - run: |
-          node scripts/request.js
+      # - run: docker exec nginx 'systemctl restart nginx'
+      - uses: docker://node
+        with:
+          args: node scripts/request.js
