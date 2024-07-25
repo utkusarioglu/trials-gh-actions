@@ -1,0 +1,20 @@
+name: Input
+
+on: 
+  workflow_call:
+    inputs:
+      first:
+        type: string
+        required: true
+      second:
+        type: number
+        required: true
+      third:
+        type: boolean
+        required: true
+
+jobs:
+  input-to-json:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ toJSON(inputs) }}

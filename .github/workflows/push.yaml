@@ -1,0 +1,14 @@
+name: Input
+
+on: 
+  push:
+
+jobs:
+  call:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/input.yaml
+        with:
+          first: cat
+          second: 5
+          third: false

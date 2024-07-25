@@ -20,7 +20,6 @@ jobs:
 
       - run: "echo hello > ${GITHUB_WORKSPACE}/file1"
 
-      # - uses: docker://ghcr.io/linuxcontainers/alpine:latest
       - uses: docker://busybox
         id: busybox
         with:
