@@ -8,7 +8,7 @@ on:
         required: true
     outputs:
       command-output:
-        value: -------------------- command return --------------------
+        value: ${{ jobs.busybox.outputs.command-output }}
 
 jobs:
   busybox:
