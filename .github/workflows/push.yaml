@@ -15,7 +15,7 @@ jobs:
         ports:
           - 80:80
         volumes:
-          - ./index.html:/usr/share/nginx/html/index.html
+          - ./public/index.html:/usr/share/nginx/html/
     steps:
       - uses: actions/checkout@v4
       - run: |
