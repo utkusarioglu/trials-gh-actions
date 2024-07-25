@@ -2,22 +2,13 @@ name: Push
 
 on: 
   push:
+    
+concurrency:
+  group: push-group
+  cancel-in-progress: true
 
 jobs:
-  bird:
+  long-running:
     runs-on: ubuntu-latest
     steps:
-      - id: cat
-        run: |
-          echo "dog=woof" >> $GITHUB_OUTPUT
-    outputs:
-      dog: ${{ steps.cat.outputs.dog }}
-  
-  animals:
-    needs: 
-      - bird
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo 'other step output:'
-          echo '${{ needs.bird.outputs.dog }}'
+      - run: sleep 5000
