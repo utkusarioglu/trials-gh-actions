@@ -9,7 +9,7 @@ jobs:
   busybox-run:
     uses: ./.github/workflows/busybox.yaml
     with:
-      command: wget -O - http://www.google.com
+      command: "wget -O - http://www.google.com"
       # command: ls -al
 
   echo-output:
