@@ -7,8 +7,8 @@ on:
 jobs:
   db-trial:
     runs-on: ubuntu-latest
-    container:
-      image: node:latest
+    # container:
+    #   image: node:latest
     services:
       nginx-service:
         image: nginx:latest
