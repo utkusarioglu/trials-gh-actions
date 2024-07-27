@@ -17,4 +17,4 @@ $$;
 SELECT 
   ROW_NUMBER() OVER() AS "row",
   "num"
-FROM fibonacci(200) AS "num";
+FROM unnest(fibonacci(200)) AS "num";
