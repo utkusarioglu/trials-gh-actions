@@ -44,7 +44,7 @@ CREATE VIEW fizzbuzz AS
     SELECT 
       "number",
       fizzbuzzbar("number") AS "kind"
-    FROM generate_series(1, 100)
+    FROM generate_series(1, 100) AS "number"
   )
   WHERE "kind" != ''
 ;
