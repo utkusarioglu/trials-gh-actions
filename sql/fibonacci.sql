@@ -1,21 +1,21 @@
-CREATE FUNCTION fibonacci(count INT)
-  RETURNS BIGINT[]
-  LANGUAGE plpgsql
-  AS $$
-DECLARE
-  memo BIGINT[] := ARRAY[0, 1];
-BEGIN
-  FOR i IN array_length(memo, 1)..(count - 1) LOOP
-    memo := memo || memo[i] + memo[i - 1];
-  END LOOP;
-  RETURN memo;
-END;
-$$;
+-- CREATE FUNCTION fibonacci(count INT)
+--   RETURNS BIGINT[]
+--   LANGUAGE plpgsql
+--   AS $$
+-- DECLARE
+--   memo BIGINT[] := ARRAY[0, 1];
+-- BEGIN
+--   FOR i IN array_length(memo, 1)..(count - 1) LOOP
+--     memo := memo || memo[i] + memo[i - 1];
+--   END LOOP;
+--   RETURN memo;
+-- END;
+-- $$;
 
-SELECT 
-  ROW_NUMBER() OVER() AS "row",
-  "num"
-FROM unnest(fibonacci(52)) AS "num";
+-- SELECT 
+--   ROW_NUMBER() OVER() AS "row",
+--   "num"
+-- FROM unnest(fibonacci(52)) AS "num";
 
 CREATE TYPE t_assignment AS (
   divisor INT,
@@ -33,8 +33,9 @@ DECLARE
     (5, 'buzz'),
     (7, 'bar')
   ];
+  a t_assignment;
 BEGIN
-  FOREACH a IN assignments LOOP
+  FOREACH a IN ARRAY assignments LOOP
     IF "num" % a.divisor = 0 THEN
       val := val || a.label;
     END IF; 
