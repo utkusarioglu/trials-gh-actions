@@ -13,7 +13,6 @@ BEGIN
 END;
 $$;
 
-\x
 SELECT 
   ROW_NUMBER() OVER() AS "row",
   "num"
