@@ -38,8 +38,8 @@ BEGIN
 END;
 $$;
 
-CREATE VIEW fizzbuzz AS
-  SELECT * 
+CREATE VIEW v_fizzbuzz AS
+  SELECT *
   FROM (
     SELECT 
       "number",
@@ -48,3 +48,5 @@ CREATE VIEW fizzbuzz AS
   )
   WHERE "kind" != ''
 ;
+
+SELECT * FROM v_fizzbuzz;
