@@ -34,7 +34,7 @@ DECLARE
     (7, 'bar')
   ];
 BEGIN
-  FOR a in assignments LOOP
+  FOREACH a IN assignments LOOP
     IF "num" % a.divisor = 0 THEN
       val := val || a.label;
     END IF; 
