@@ -29,7 +29,8 @@ jobs:
           sudo apt-get install -y postgresql-client
       - run: cat sql/fizzbuzz.sql
       # - run: PGPASSWORD=postgres psql -h /var/run/postgresql -U postgres -d postgres -c 'SHOW config_file;'
-      - run: |
+      - name: Run Query
+        run: |
           PGPASSWORD=postgres psql \
             -h /var/run/postgresql \
             -U postgres \
