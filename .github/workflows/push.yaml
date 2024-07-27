@@ -21,4 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          psql -c 'SHOW config_file;'
+          echo --------------------
+          echo "docker:"
+          which docker
+          echo --------------------
+          psql -h localhost -c 'SHOW config_file;'
+          echo --------------------
