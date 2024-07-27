@@ -25,4 +25,5 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y postgresql-client
       - run: psql --version
-      - run: psql -h postgres:5432 -c 'SHOW config_file;'
+      - run: psql --help
+      - run: psql -h http://postgres:5432 -c 'SHOW config_file;'
