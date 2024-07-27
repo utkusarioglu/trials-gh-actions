@@ -8,7 +8,7 @@ DECLARE
 BEGIN
   FOR i IN "start_index".."count" LOOP
     "memo" := "memo" || "memo"[-1] + "memo"[-2];
-  END LOOP
+  END LOOP;
   RETURN "memo";
 END;
 $$;
