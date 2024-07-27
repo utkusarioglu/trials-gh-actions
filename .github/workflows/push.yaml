@@ -12,6 +12,7 @@ jobs:
         POSTGRES_PASSWORD: postgres
         POSTGRES_USER: postgres
         POSTGRES_HOST_AUTH_METHOD: trust
+        POSTGRES_HOST: localhost
       ports:
         - 5432:5432
     defaults:
@@ -20,4 +21,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          PGPASSWORD=postgres psql -U postgres -c 'SHOW config_file;'
+          psql -c 'SHOW config_file;'
