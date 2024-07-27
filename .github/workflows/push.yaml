@@ -16,6 +16,8 @@ jobs:
           POSTGRES_PORT: 5432
         ports:
           - 5432:5432
+        volumes:
+          - /var/run/postgresql:/var/run/postgresql
     defaults:
       run:
         shell: bash
@@ -26,4 +28,4 @@ jobs:
           sudo apt-get install -y postgresql-client
       - run: psql --version
       - run: psql --help
-      - run: psql -h http://postgres:5432 -c 'SHOW config_file;'
+      - run: psql -h postgres -p 5432 -c 'SHOW config_file;'
