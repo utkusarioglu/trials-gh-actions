@@ -28,7 +28,7 @@ CREATE FUNCTION fizzbuzzbar(num INT)
   AS $$
 DECLARE
   val VARCHAR(20) := '';
-  assignments t_assignment[]: ARRAY[
+  assignments t_assignment[] := ARRAY[
     (3, 'fizz'),
     (5, 'buzz'),
     (7, 'bar')
