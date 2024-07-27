@@ -24,9 +24,9 @@ jobs:
           echo --------------------
           which psql
           echo --------------------
-          echo "no user"
-          psql -h localhost -c 'SHOW config_file;'
-          echo --------------------
-          echo "postgres user"
-          psql -U postgres -c 'SHOW config_file;'
-          echo --------------------
+          # echo "no user"
+          psql -h localhost -U postgres -c 'SHOW config_file;'
+          # echo --------------------
+          # echo "postgres user"
+          # psql -U postgres -c 'SHOW config_file;'
+          # echo --------------------
