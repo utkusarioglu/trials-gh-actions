@@ -7,7 +7,7 @@ DECLARE
   "start_index" INT := array_length("memo", 1);
 BEGIN
   FOR i IN "start_index".."count" LOOP
-    "memo" := "memo" || "memo"[i] + "memo"[i - 1];
+    "memo" := "memo" || "memo"[i - 1] + "memo"[i - 2];
   END LOOP;
   RETURN "memo";
 END;
