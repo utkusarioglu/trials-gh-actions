@@ -27,11 +27,13 @@ CREATE FUNCTION fizzbuzzbar(num INT)
   LANGUAGE plpgsql
   AS $$
 DECLARE
-  val VARCHAR(20) := '';
+  val TEXT := '';
   assignments t_assignment[] := ARRAY[
     (3, 'fizz'),
     (5, 'buzz'),
-    (7, 'bar')
+    (7, 'foo'),
+    (11, 'bar')
+    (13, 'baz')
   ];
   a t_assignment;
 BEGIN
@@ -40,6 +42,7 @@ BEGIN
       val := val || a.label;
     END IF; 
   END LOOP;
+
   RETURN val;
 END;
 $$;

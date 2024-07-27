@@ -36,10 +36,7 @@ function gh_watch {
 function get_job_id {
   run_id=${1:?$(error_param 1 'Run ID')}
 
-  # gh run view "${run_id}" --log --json "jobs" | \
-  #   jq -r '.jobs[].databaseId'
   gh run view "${run_id}" --log --json 'jobs' -q '.jobs[].databaseId'
-    # jq -r '.jobs[].databaseId'
 }
 
 function get_log {
@@ -49,7 +46,7 @@ function get_log {
   echo "Showing trimmed logs for '$step_name'…"
   gh run view --job "${job_id}" --log | \
     grep "${step_name}" | \
-    awk '{for(i=1; i < 5; i++) $i=""; sub(/\s{2,}/, ""); print}'
+    awk '{for(i=1; i < 4; i++) $i=""; sub(/\s{2,}/, ""); print}'
 }
 
 commit
