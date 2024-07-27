@@ -16,17 +16,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          cat /etc/os-release
-          which psql
-          echo --------------------
-          echo "pg: ${PGPASSWORD}"
-          echo "postgres: ${POSTGRES_PASSWORD}"
-          echo --------------------
-          which psql
-          echo --------------------
-          # echo "no user"
-          psql -h localhost -U postgres -c 'SHOW config_file;'
-          # echo --------------------
-          # echo "postgres user"
-          # psql -U postgres -c 'SHOW config_file;'
-          # echo --------------------
+          PGPASSWORD=cat psql -h localhost -U postgres -c 'SHOW config_file;'
