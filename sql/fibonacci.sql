@@ -32,7 +32,7 @@ DECLARE
     (3, 'fizz'),
     (5, 'buzz'),
     (7, 'foo'),
-    (11, 'bar')
+    (11, 'bar'),
     (13, 'baz')
   ];
   a t_assignment;
