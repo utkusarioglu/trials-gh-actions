@@ -9,11 +9,15 @@ jobs:
     container:
       image: postgres:16.3
       env:
-        PGPASSWORD: cat
-        POSTGRES_PASSWORD: cat
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_HOST_AUTH_METHOD: trust
       ports:
         - 5432:5432
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
       - run: |
-          PGPASSWORD=cat psql -h localhost -U postgres -c 'SHOW config_file;'
+          PGPASSWORD=postgres psql -h localhost -U postgres -c 'SHOW config_file;'
