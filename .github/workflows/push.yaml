@@ -20,4 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          PGPASSWORD=postgres psql -h localhost -U postgres -c 'SHOW config_file;'
+          PGPASSWORD=postgres psql -U postgres -c 'SHOW config_file;'
