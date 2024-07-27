@@ -1,1 +1,19 @@
--- This is to be written
+CREATE FUNCTION fibonacci("count" INT)
+  RETURNS INT[]
+  LANGUAGE plpgsql
+  AS $$
+DECLARE
+  "memo" := ARRAY[0, 1];
+  "start_index" := array_length("memo", 1);
+BEGIN
+  FOR i IN "start_index".."count" LOOP
+    "memo" := "memo" || "memo"[-1] + "memo"[-2];
+  END LOOP
+  RETURN "memo";
+END;
+$$;
+
+SELECT 
+  ROW_NUMBER() OVER() AS "row",
+  "num"
+FROM fibonacci(200) AS "num";

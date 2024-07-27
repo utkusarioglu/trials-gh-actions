@@ -35,4 +35,4 @@ jobs:
             -h /var/run/postgresql \
             -U postgres \
             -d postgres \
-            -f ${GITHUB_WORKSPACE}/sql/fizzbuzz.sql
+            -f ${GITHUB_WORKSPACE}/sql/fibonacci.sql
