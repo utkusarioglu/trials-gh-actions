@@ -18,4 +18,4 @@ CREATE VIEW fizzbuzz AS
   )
   WHERE "kind" != '';
 
-SELECT fizzbuzz();
+SELECT * FROM fizzbuzz;
