@@ -12,5 +12,5 @@ CREATE VIEW fizzbuzz AS
         ELSE ''
       END
     ) AS "kind"
-  FROM generate_series(1, 200) AS "number";
+  FROM generate_series(1, 200) AS "number"
   WHERE "kind" != '';
