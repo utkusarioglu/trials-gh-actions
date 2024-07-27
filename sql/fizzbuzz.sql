@@ -17,3 +17,5 @@ CREATE VIEW fizzbuzz AS
     FROM generate_series(1, 200) AS "number"
   )
   WHERE "kind" != '';
+
+SELECT fizzbuzz();
