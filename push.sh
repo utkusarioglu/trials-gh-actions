@@ -1,4 +1,6 @@
 git add . & git commit -m "$(date)" && git push
 
-sleep 5000
+echo 'Sleeping for 10'
+sleep 10
+
 gh run watch 
