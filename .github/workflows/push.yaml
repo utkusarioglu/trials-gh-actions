@@ -24,12 +24,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker container ls -a
-      - run: |
+      - name: Updates
+        run: |
           sudo apt-get update
           sudo apt-get install -y postgresql-client
       - run: cat sql/fizzbuzz.sql
       # - run: PGPASSWORD=postgres psql -h /var/run/postgresql -U postgres -d postgres -c 'SHOW config_file;'
-      - name: Run Query
+      - name: Query
         run: |
           PGPASSWORD=postgres psql \
             -h /var/run/postgresql \
