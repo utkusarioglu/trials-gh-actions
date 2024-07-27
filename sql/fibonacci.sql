@@ -1,14 +1,12 @@
 CREATE FUNCTION fibonacci("count" INT)
-  RETURNS INT[]
+  RETURNS BIGINT[]
   LANGUAGE plpgsql
   AS $$
 DECLARE
   memo BIGINT[] := ARRAY[0, 1];
   start_index INT := array_length(memo, 1);
 BEGIN
-  -- RAISE NOTICE 'start_index: %', start_index;
   FOR i IN start_index..count LOOP
-    -- RAISE NOTICE 'i: %, l: %', i, memo[i];
     memo := memo || memo[i] + memo[i - 1];
   END LOOP;
   RETURN memo;
