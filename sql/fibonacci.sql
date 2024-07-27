@@ -3,10 +3,10 @@ CREATE FUNCTION fibonacci("count" INT)
   LANGUAGE plpgsql
   AS $$
 DECLARE
-  "memo" INT[] := ARRAY[0, 1];
-  "start_index" INT := array_length("memo", 1);
+  memo INT[] := ARRAY[0, 1];
+  start_index INT := array_length(memo, 1);
 BEGIN
-  RAISE NOTICE "start_index: %", start_index;
+  RAISE NOTICE 'start_index: %', start_index;
   FOR i IN start_index..count LOOP
     memo := memo || memo[i - 1] + memo[i - 2];
   END LOOP;
