@@ -9,6 +9,7 @@ BEGIN
   RAISE NOTICE 'start_index: %', start_index;
   FOR i IN start_index..count LOOP
     memo = memo || memo[i - 1] + memo[i - 2];
+    RAISE NOTICE 'i: %, l: %', i, array_length(memo, 1);
   END LOOP;
   RETURN memo;
 END;
