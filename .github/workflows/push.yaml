@@ -31,4 +31,4 @@ jobs:
           sudo apt-get install -y postgresql-client
       - run: psql --version
       - run: psql --help
-      - run: psql -h /var/run/postgresql -p 5432 -c 'SHOW config_file;'
+      - run: PGPASSWORD=postgres psql -h /var/run/postgresql -U postgres -d postgres -p 5432 -c 'SHOW config_file;'
