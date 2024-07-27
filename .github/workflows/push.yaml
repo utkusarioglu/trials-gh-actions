@@ -23,6 +23,7 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v4
+      - run: docker container ls -a
       - run: |
           sudo apt-get update
           sudo apt-get install -y postgresql-client
