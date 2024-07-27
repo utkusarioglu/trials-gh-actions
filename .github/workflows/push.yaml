@@ -17,4 +17,4 @@ jobs:
       - run: |
           which psql
           echo --------------------
-          PGPASSWORD=cat psql -U postgres -c 'SHOW config_file;'
+          PGPASSWORD=cat psql -Upostgres -c 'SHOW config_file;'
