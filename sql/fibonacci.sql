@@ -8,8 +8,8 @@ DECLARE
 BEGIN
   RAISE NOTICE 'start_index: %', start_index;
   FOR i IN start_index..count LOOP
-    RAISE NOTICE 'i: %', i;
-    memo = memo || memo[i] + memo[i - 1];
+    RAISE NOTICE 'i: %, l: %', i, memo[i];
+    memo := memo || memo[i] + memo[i - 1];
   END LOOP;
   RETURN memo;
 END;
