@@ -18,8 +18,8 @@ jobs:
           - 5432:5432
         volumes:
           - /var/run/postgresql:/var/run/postgresql
-        # options: --name postgres 
-        options: --name postgres --hostname postgres
+        options: --name postgres 
+        # options: --name postgres --hostname postgres
     defaults:
       run:
         shell: bash
@@ -31,4 +31,4 @@ jobs:
           sudo apt-get install -y postgresql-client
       - run: psql --version
       - run: psql --help
-      - run: psql -h postgres -p 5432 -c 'SHOW config_file;'
+      - run: psql -h /var/run/postgresql -p 5432 -c 'SHOW config_file;'
