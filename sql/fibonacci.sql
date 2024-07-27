@@ -1,3 +1,4 @@
+\pset format aligned
 -- CREATE FUNCTION fibonacci(count INT)
 --   RETURNS BIGINT[]
 --   LANGUAGE plpgsql
